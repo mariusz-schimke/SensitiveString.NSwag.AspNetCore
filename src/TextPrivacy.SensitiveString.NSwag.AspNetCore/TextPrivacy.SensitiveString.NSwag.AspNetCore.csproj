@@ -1,0 +1,77 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <!-- https://www.meziantou.net/creating-reproducible-build-in-dotnet.htm -->
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Configurations>Debug;Release;Publish</Configurations>
+    <Platforms>AnyCPU</Platforms>
+
+    <!-- <ApplicationIcon>..\..\assets\icon.ico</ApplicationIcon> -->
+    <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+
+    <!-- to include generated files in the NuGet package -->
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+
+    <Deterministic>true</Deterministic>
+
+    <Version>0.1.1</Version>
+    <IncludeSourceRevisionInInformationalVersion>true</IncludeSourceRevisionInInformationalVersion>
+
+    <PackageId>SensitiveString.NSwag.AspNetCore</PackageId>
+    <Title>SensitiveString.NSwag.AspNetCore</Title>
+    <Product>SensitiveString.NSwag.AspNetCore</Product>
+    <Description>This package extends SensitiveString to, so it can be used in Swagger/OpenAPI documentation.</Description>
+    <Authors>Mariusz Schimke</Authors>
+    <Copyright>Copyright © 2024 Mariusz Schimke</Copyright>
+    <PackageTags>sensitive strings privacy nswag swagger openapi</PackageTags>
+
+    <PackageProjectUrl>https://github.com/$(Repository)</PackageProjectUrl>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <!-- <PackageIcon>icon.png</PackageIcon> -->
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <EnablePackageValidation>true</EnablePackageValidation>
+
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/$(Repository).git</RepositoryUrl>
+    <RepositoryBranch>$(Branch)</RepositoryBranch>
+    <RepositoryCommit>$(Commit)</RepositoryCommit>
+
+    <PackageReleaseNotes>This is an initial package release. All comments and suggestions are warmly welcomed and encouraged to be reported as issues on GitHub. Your input is highly valued to help refine and improve this offering.
+
+See also https://github.com/$(Repository)/releases</PackageReleaseNotes>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)' == 'Publish'">
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>SensitiveString.NSwag.AspNetCore.snk</AssemblyOriginatorKeyFile>
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
+    <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="SensitiveString" />
+    <PackageReference Include="NSwag.Generation.AspNetCore" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" PrivateAssets="All" />
+    <PackageReference Include="SauceControl.InheritDoc">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- <None Include="../../assets/icon.png" Pack="true" Visible="false" PackagePath="/" /> -->
+    <None Include="../../LICENSE" Pack="true" Visible="false" PackagePath="/" />
+    <None Include="../../README.md" Pack="true" Visible="false" PackagePath="/" />
+  </ItemGroup>
+
+</Project>
