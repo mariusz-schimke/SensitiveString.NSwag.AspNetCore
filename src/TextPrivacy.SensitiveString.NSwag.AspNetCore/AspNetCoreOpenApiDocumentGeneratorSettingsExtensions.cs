@@ -7,10 +7,10 @@ namespace TextPrivacy.SensitiveString.NSwag.AspNetCore;
 public static class AspNetCoreOpenApiDocumentGeneratorSettingsExtensions
 {
     /// <summary>
-    ///     Adds proper type mapping to Swagger documentation for the sensitive string types.
+    ///     Adds proper type mapping to OpenAPI documentation for the sensitive string types.
     /// </summary>
     /// <param name="settings">
-    ///     The Swagger documentation generator settings.
+    ///     The OpenAPI documentation generator settings.
     /// </param>
     public static void AddSensitiveStringSupport(this AspNetCoreOpenApiDocumentGeneratorSettings settings)
     {

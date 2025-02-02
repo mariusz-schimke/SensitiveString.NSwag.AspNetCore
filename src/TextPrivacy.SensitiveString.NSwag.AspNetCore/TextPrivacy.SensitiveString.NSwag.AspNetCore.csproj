@@ -2,7 +2,6 @@
   <!-- https://www.meziantou.net/creating-reproducible-build-in-dotnet.htm -->
 
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
     <Configurations>Debug;Release;Publish</Configurations>
     <Platforms>AnyCPU</Platforms>
 
@@ -19,15 +18,15 @@
 
     <Deterministic>true</Deterministic>
 
-    <Version>0.1.1</Version>
+    <Version>0.1.3</Version>
     <IncludeSourceRevisionInInformationalVersion>true</IncludeSourceRevisionInInformationalVersion>
 
     <PackageId>SensitiveString.NSwag.AspNetCore</PackageId>
     <Title>SensitiveString.NSwag.AspNetCore</Title>
     <Product>SensitiveString.NSwag.AspNetCore</Product>
-    <Description>This package extends SensitiveString to, so it can be used in Swagger/OpenAPI documentation.</Description>
+    <Description>This package extends SensitiveString so it can be used with NSwag, the Swagger/OpenAPI toolchain.</Description>
     <Authors>Mariusz Schimke</Authors>
-    <Copyright>Copyright © 2024 Mariusz Schimke</Copyright>
+    <Copyright>Copyright © 2024-2025 Mariusz Schimke</Copyright>
     <PackageTags>sensitive strings privacy nswag swagger openapi</PackageTags>
 
     <PackageProjectUrl>https://github.com/$(Repository)</PackageProjectUrl>
