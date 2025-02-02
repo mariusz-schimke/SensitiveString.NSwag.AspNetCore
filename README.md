@@ -7,6 +7,9 @@ This package extends [SensitiveString](https://www.nuget.org/packages/SensitiveS
 If your API includes sensitive string types in requests or responses, this configuration ensures they are represented as standard strings in the generated OpenAPI documentation. 
 
 ```c#
+// Program.cs
+using TextPrivacy.SensitiveString.NSwag.AspNetCore;
+
 builder.Services.AddOpenApiDocument(o =>
 {
     // ...
